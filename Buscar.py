@@ -1,4 +1,5 @@
 from tkinter import *
+from Listado import Listado
 
 class Buscar(Frame):
     
@@ -15,6 +16,7 @@ class Buscar(Frame):
         self.titulo = ("Arial", 16, "bold")
         self.botones=("Tahoma", 9)
         self.colorBotones =  "#183c54"
+
         self.titulo = Label(self, text="BIENVENIDOS A \n GESTION DE ESTUDIANTES", justify='center', fg="#FFFFFF",bg="#183c54", font=self.titulo)
         self.titulo.grid(row=0, column=0, columnspan=4, pady=50)
          
@@ -38,12 +40,24 @@ class Buscar(Frame):
         self.cuadro_Dni.pack(fill="both", expand=True)
         self.cuadro_Dni.config(fg="#F0F8FF",justify="center",font="arial, 9")
 
-        self.BotonAgregar = Button(self, text="Agregar",bg="#FFFFFF",font=self.botones,fg=self.colorBotones).grid(row=5, column=0, padx=30, pady=40, sticky="ew")
+        self.BotonAgregar = Button(self, text="Agregar",bg="#FFFFFF",font=self.botones,fg=self.colorBotones, command=self.abrir_agregar ).grid(row=5, column=0, padx=30, pady=40,sticky="ew" )
         self.BotonBuscar= Button(self, text="Buscar",bg="#FFFFFF",font=self.botones,fg=self.colorBotones).grid(row=5, column=3, padx=30, pady=40, sticky="ew")
-'''       
+
+
+    def abrir_agregar(self):
+        # Crea una nueva ventana para el menú
+        ventana_agregar = Toplevel(self.master)
+        ventana_agregar.geometry("550x300")
+        ventana_agregar.resizable
+        Listado(ventana_agregar)
+
+
+
+
+'''
 root = Tk()
 root.geometry("360x400")
 root.configure(bg="#183c54")
-app = Menu(master=root)
+app = Buscar(master=root)
 app.mainloop()
 '''
